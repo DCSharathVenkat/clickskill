@@ -1,28 +1,31 @@
 import Link from "next/link"
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin, Brain, Settings, TrendingUp, Database, Users, Smartphone, Stethoscope, Repeat, CheckCircle2, Calculator, LayoutDashboard, BookOpen, FileText, Banknote, Factory, ShoppingCart, Trophy } from "lucide-react"
+import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react"
+
 
 const services = [
-  { name: "AI & ML Development", href: "/services/ai-ml-development", icon: <Brain size={16} /> },
-  { name: "Product Engineering", href: "/services/product-engineering", icon: <Settings size={16} /> },
-  { name: "Digital Transformation", href: "/services/digital-transformation", icon: <TrendingUp size={16} /> },
-  { name: "Data Engineering", href: "/services/data-engineering", icon: <Database size={16} /> },
-  { name: "Staff Augmentation", href: "/services/staff-augmentation", icon: <Users size={16} /> },
+  { name: "AI & ML Development", href: "/services/ai-ml-development" },
+  { name: "Product Engineering", href: "/services/product-engineering" },
+  { name: "Digital Transformation", href: "/services/digital-transformation" },
+  { name: "GRC", href: "/services/grc" },
+  { name: "EdTech", href: "/services/edtech-development" },
 ]
 
 const solutions = [
-  { name: "Enterprise Mobility", href: "/solutions/enterprise-mobility", icon: <Smartphone size={16} /> },
-  { name: "AI Solutions", href: "/solutions/ai-solutions", icon: <Brain size={16} /> },
-  { name: "Digital Healthcare", href: "/solutions/digital-healthcare", icon: <Stethoscope size={16} /> },
-  { name: "Enterprise Digital Transformation", href: "/solutions/enterprise-digital-transformation", icon: <Repeat size={16} /> },
+  { name: "Enterprise Mobility", href: "/solutions/enterprise-mobility" },
+  { name: "AI Solutions", href: "/solutions/ai-solutions" },
+  { name: "Digital Healthcare", href: "/solutions/digital-healthcare" },
+  { name: "Enterprise Digital Transformation", href: "/solutions/enterprise-digital-transformation" },
 ]
 
 const resources = [
-  { name: "AI Readiness Checker", href: "/resources/ai-readiness-checker", icon: <CheckCircle2 size={16} /> },
-  { name: "Project Cost Calculator", href: "/resources/cost-calculator", icon: <Calculator size={16} /> },
-  { name: "Case Studies", href: "/resources/case-studies", icon: <LayoutDashboard size={16} /> },
-  { name: "White Papers", href: "/resources/white-papers", icon: <BookOpen size={16} /> },
-  { name: "Articles", href: "/resources/articles", icon: <FileText size={16} /> },
+  { name: "AI Readiness Checker", href: "/resources/ai-readiness-checker" },
+  { name: "Project Cost Calculator", href: "/resources/cost-calculator" },
+  { name: "Contact Us", href: "/contact" },
+  // { name: "Case Studies", href: "/resources/case-studies" },
+  // { name: "White Papers", href: "/resources/white-papers" },
+  // { name: "Articles", href: "/resources/articles" },
 ]
+
 
 export function Footer() {
   return (
@@ -43,12 +46,24 @@ export function Footer() {
             <p className="text-gray-300 max-w-md leading-relaxed">
               Empowering businesses with cutting-edge<br /> AI solutions, digital transformation <br />and innovative technology services.
             </p>
-              <div className="flex space-x-4">
-              <Link href="#" aria-label="Facebook" className="hover:text-primary"><Facebook size={16} /></Link>
-              <Link href="https://x.com/ClickSkillUSA" aria-label="Twitter" className="hover:text-primary"><Twitter size={16} /></Link>
-              <Link href="#" aria-label="LinkedIn" className="hover:text-primary"><Linkedin size={16} /></Link>
-              <Link href="#" aria-label="Instagram" className="hover:text-primary"><Instagram size={16} /></Link>
-            </div>
+<div className="flex space-x-4">
+  <Link href="#" aria-label="Facebook" className="flex items-center gap-1 hover:text-primary">
+    <Facebook size={16} />
+    <span className="sr-only">Facebook</span>
+  </Link>
+  <Link href="https://x.com/ClickSkillUSA" aria-label="Twitter" className="flex items-center gap-1 hover:text-primary">
+    <Twitter size={16} />
+    <span className="sr-only">Twitter</span>
+  </Link>
+  <Link href="#" aria-label="LinkedIn" className="flex items-center gap-1 hover:text-primary">
+    <Linkedin size={16} />
+    <span className="sr-only">LinkedIn</span>
+  </Link>
+  <Link href="#" aria-label="Instagram" className="flex items-center gap-1 hover:text-primary">
+    <Instagram size={16} />
+    <span className="sr-only">Instagram</span>
+  </Link>
+</div>
 
           </div>
 
@@ -58,8 +73,7 @@ export function Footer() {
             <ul className="space-y-2">
               {services.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="flex items-center gap-2 text-gray-300 hover:text-primary text-sm transition-colors duration-200">
-                    {item.icon}
+                  <Link href={item.href} className="text-gray-300 hover:text-primary text-sm transition-colors duration-200">
                     {item.name}
                   </Link>
                 </li>
@@ -73,51 +87,25 @@ export function Footer() {
             <ul className="space-y-2">
               {solutions.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="flex items-center gap-2 text-gray-300 hover:text-primary text-sm transition-colors duration-200">
-                    {item.icon}
+                  <Link href={item.href} className="text-gray-300 hover:text-primary text-sm transition-colors duration-200">
                     {item.name}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
-          {/* Industries */}
-<div>
-  <h4 className="font-semibold text-white mb-4 text-lg">Industries</h4>
-  <ul className="space-y-2">
-    <li>
-      <Link href="/industries/fintech" className="flex items-center gap-2 text-gray-300 hover:text-primary text-sm transition-colors duration-200">
-        <Banknote size={16} />
-        Fintech
-      </Link>
-    </li>
-    <li>
-      <Link href="/industries/manufacturing" className="flex items-center gap-2 text-gray-300 hover:text-primary text-sm transition-colors duration-200">
-        <Factory size={16} />
-        Manufacturing
-      </Link>
-    </li>
-    <li>
-      <Link href="/industries/healthcare" className="flex items-center gap-2 text-gray-300 hover:text-primary text-sm transition-colors duration-200">
-        <Stethoscope size={16} />
-        Healthcare
-      </Link>
-    </li>
-    <li>
-      <Link href="/industries/ecommerce" className="flex items-center gap-2 text-gray-300 hover:text-primary text-sm transition-colors duration-200">
-        <ShoppingCart size={16} />
-        eCommerce
-      </Link>
-    </li>
-    <li>
-      <Link href="/industries/sports" className="flex items-center gap-2 text-gray-300 hover:text-primary text-sm transition-colors duration-200">
-        <Trophy size={16} />
-        Sports Technology
-      </Link>
-    </li>
-  </ul>
-</div>
 
+          {/* Industries */}
+          <div>
+            <h4 className="font-semibold text-white mb-4 text-lg">Industries</h4>
+            <ul className="space-y-2">
+              <li><Link href="/industries/fintech" className="text-gray-300 hover:text-primary text-sm">Fintech</Link></li>
+              <li><Link href="/industries/manufacturing" className="text-gray-300 hover:text-primary text-sm">Manufacturing</Link></li>
+              <li><Link href="/industries/healthcare" className="text-gray-300 hover:text-primary text-sm">Healthcare</Link></li>
+              <li><Link href="/industries/ecommerce" className="text-gray-300 hover:text-primary text-sm">eCommerce</Link></li>
+              <li><Link href="/industries/sports" className="text-gray-300 hover:text-primary text-sm">Sports Technology</Link></li>
+            </ul>
+          </div>
 
           {/* Resources */}
           <div>
@@ -125,8 +113,7 @@ export function Footer() {
             <ul className="space-y-2">
               {resources.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="flex items-center gap-2 text-gray-300 hover:text-primary text-sm transition-colors duration-200">
-                    {item.icon}
+                  <Link href={item.href} className="text-gray-300 hover:text-primary text-sm transition-colors duration-200">
                     {item.name}
                   </Link>
                 </li>
@@ -136,24 +123,18 @@ export function Footer() {
         </div>
 
         {/* Footer Bottom */}
-       <div className="border-t border-gray-700 py-6 mt-6">
-  <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 space-y-4 md:space-y-0">
-    
-    {/* Left: Copyright */}
-    <div className="text-center md:text-left">
-      <span>&copy; 2024 ClickSkill. All rights reserved.</span>
-    </div>
-
-    {/* Right: Links */}
-    <div className="flex space-x-6 text-center md:text-right">
-      <Link href="/privacy" className="hover:text-primary">Privacy Policy</Link>
-      <Link href="/terms" className="hover:text-primary">Terms of Service</Link>
-      <Link href="/cookies" className="hover:text-primary">Cookie Policy</Link>
-    </div>
-    
-  </div>
-</div>
-
+        <div className="border-t border-gray-700 py-6 mt-6">
+          <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 space-y-4 md:space-y-0">
+            <div className="text-center md:text-left">
+              <span>&copy; 2024 ClickSkill. All rights reserved.</span>
+            </div>
+            <div className="flex space-x-6 text-center md:text-right">
+              <Link href="/privacy" className="hover:text-primary">Privacy Policy</Link>
+              <Link href="/terms" className="hover:text-primary">Terms of Service</Link>
+              <Link href="/cookies" className="hover:text-primary">Cookie Policy</Link>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
   )

@@ -52,9 +52,9 @@ const industries = [
 const resources = [
   { icon: <CheckCircle2 size={16} />, name: "AI Readiness Checker", href: "/resources/ai-readiness-checker" },
   { icon: <Calculator size={16} />, name: "Project Cost Calculator", href: "/resources/cost-calculator" },
-  { icon: <LayoutDashboard size={16} />, name: "Case Studies", href: "/resources/case-studies" },
-  { icon: <BookOpen size={16} />, name: "White Papers", href: "/resources/white-papers" },
-  { icon: <FileText size={16} />, name: "Articles", href: "/resources/articles" },
+  //{ icon: <LayoutDashboard size={16} />, name: "Case Studies", href: "/resources/case-studies" },
+  //{ icon: <BookOpen size={16} />, name: "White Papers", href: "/resources/white-papers" },
+  //{ icon: <FileText size={16} />, name: "Articles", href: "/resources/articles" },
   { icon: <Phone size={16} />, name: "Contact Us", href: "/contact" },
 ]
 

@@ -76,14 +76,14 @@ export default function HealthcarePage() {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button
+              {/*<Button
                 variant="outline"
                 size="lg"
                 className="bg-white/10 border-white/30 text-white hover:bg-white/20"
                 asChild
               >
                 <Link href="/demo">View Healthcare Solutions</Link>
-              </Button>
+              </Button>*/}
             </div>
           </div>
         </div>
