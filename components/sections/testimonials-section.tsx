@@ -3,108 +3,116 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
+import { cn } from '@/lib/utils'
+import { Avatar, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
+
+interface TestimonialAuthor {
+  name: string
+  handle: string
+  avatar: string
+}
+
+interface TestimonialCardProps {
+  author: TestimonialAuthor
+  text: string
+  href?: string
+  className?: string
+}
+
+function TestimonialCard({ author, text, href, className }: TestimonialCardProps) {
+  const Card = href ? 'a' : 'div'
+
+  return (
+    <Card
+      {...(href ? { href } : {})}
+      className={cn(
+        'flex flex-col rounded-lg border-t',
+        'bg-gradient-to-b from-muted/50 to-muted/10',
+        'p-4 text-start sm:p-6',
+        'hover:from-muted/60 hover:to-muted/20',
+        'max-w-[320px] sm:max-w-[320px]',
+        'transition-colors duration-300',
+        className
+      )}
+    >
+      <div className="flex items-center gap-3">
+        <Avatar className="h-12 w-12">
+          <AvatarImage src={author.avatar} alt={author.name} />
+        </Avatar>
+        <div className="flex flex-col items-start">
+          <h3 className="text-md font-semibold leading-none">{author.name}</h3>
+          <p className="text-sm text-muted-foreground">{author.handle}</p>
+        </div>
+      </div>
+      <p className="sm:text-md mt-4 text-sm text-muted-foreground">{text}</p>
+    </Card>
+  )
+}
 
 const testimonials = [
   {
-    name: 'Sarah Johnson',
-    title: 'CTO, TechCorp Industries',
-    content:
-      'ClickSkill transformed our legacy systems with their AI-powered solutions. The ROI was evident within the first quarter.',
-    avatar: '/avatars/sarah.jpg',
+    author: {
+      name: 'Sarah Johnson',
+      handle: '@sarahtech',
+      avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face',
+    },
+    text: 'ClickSkill transformed our legacy systems with their AI-powered solutions. The ROI was evident within the first quarter.',
+    href: 'https://twitter.com/sarahtech',
   },
   {
-    name: 'Michael Chen',
-    title: 'VP, Global Finance Solutions',
-    content:
-      'Their fintech expertise helped us launch our digital banking platform ahead of schedule.',
-    avatar: '/avatars/michael.jpg',
+    author: {
+      name: 'Michael Chen',
+      handle: '@michaelfin',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+    },
+    text: 'Their fintech expertise helped us launch our digital banking platform ahead of schedule.',
+    href: 'https://twitter.com/michaelfin',
   },
   {
-    name: 'Dr. Emily Rodriguez',
-    title: 'CMO, HealthTech Innovations',
-    content:
-      'The telemedicine platform ClickSkill developed has revolutionized how we deliver patient care.',
-    avatar: '/avatars/emily.jpg',
+    author: {
+      name: 'Dr. Emily Rodriguez',
+      handle: '@emilyhealth',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop&crop=face',
+    },
+    text: 'The telemedicine platform ClickSkill developed has revolutionized how we deliver patient care.',
   },
 ]
 
 export function TestimonialsSection() {
-  const [index, setIndex] = useState(0)
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % testimonials.length)
-    }, 6000)
-    return () => clearInterval(timer)
-  }, [])
-
-  const testimonial = testimonials[index]
-
   return (
-    <section className="relative py-24 px-6 md:px-10 bg-gradient-to-br from-white via-slate-50 to-slate-100">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-30 -z-10" />
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-14">
-          Trusted by Industry Leaders
-        </h2>
-
-        <div className="relative">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.6 }}
-              className="relative bg-white rounded-3xl p-10 shadow-2xl border border-gray-100 mx-auto max-w-3xl"
-            >
-              <div className="text-xl text-gray-800 italic mb-8 leading-relaxed">
-                “{testimonial.content}”
-              </div>
-
-              <div className="flex items-center justify-center gap-5 mt-8">
-                <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-slate-200 shadow-md">
-                  <Image
-                    src={testimonial.avatar}
-                    alt={testimonial.name}
-                    width={56}
-                    height={56}
-                    className="object-cover"
-                  />
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-slate-900 text-lg">
-                    {testimonial.name}
-                  </h4>
-                  <p className="text-sm text-slate-500">{testimonial.title}</p>
-                </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-
-          <div className="flex justify-center mt-10 space-x-3">
-            {testimonials.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setIndex(idx)}
-                aria-label={`Go to testimonial ${idx + 1}`}
-                className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none ring-1 ring-slate-300 ${
-                  idx === index
-                    ? 'bg-blue-600 scale-125 ring-blue-400'
-                    : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-              />
-            ))}
-          </div>
+    <section className="bg-background text-foreground py-12 sm:py-24 md:py-32 px-0">
+      <div className="mx-auto flex max-w-container flex-col items-center gap-4 text-center sm:gap-16">
+        <div className="flex flex-col items-center gap-4 px-4 sm:gap-8">
+          <h2 className="max-w-[720px] text-3xl font-semibold leading-tight sm:text-5xl sm:leading-tight">
+            What Our Clients Say
+          </h2>
+          <p className="text-md max-w-[600px] font-medium text-muted-foreground sm:text-xl">
+            Trusted by industry leaders across AI, Fintech, and HealthTech.
+          </p>
         </div>
 
-        <div className="mt-14">
+        <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+          <div className="group flex overflow-hidden p-2 [--gap:1rem] [gap:var(--gap)] flex-row [--duration:40s]">
+            <div className="flex shrink-0 justify-around [gap:var(--gap)] animate-marquee flex-row group-hover:[animation-play-state:paused]">
+              {[...Array(4)].map((_, setIndex) => (
+                testimonials.map((testimonial, i) => (
+                  <TestimonialCard key={`${setIndex}-${i}`} {...testimonial} />
+                ))
+              ))}
+            </div>
+          </div>
+
+          <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-1/3 bg-gradient-to-r from-background sm:block" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/3 bg-gradient-to-l from-background sm:block" />
+        </div>
+
+        <div className="mt-12">
           <Button
             size="lg"
-            className="bg-[#0A6373] text-white hover:bg-[#04a5ab] transition-all duration-300 hover:scale-105 shadow-lg"
+            className="bg-[#0A6373] text-white hover:bg-[#04a5ab] transition-all duration-300 hover:scale-105"
           >
-            Partner With Us
+            Work With Us
           </Button>
         </div>
       </div>
