@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/og-ai-ml.jpg",
+        url: "/images/bgmainhero.png",
         width: 1200,
         height: 630,
         alt: "AI & ML Development Services by ClickSkill.io",
@@ -164,6 +164,7 @@ export default function AIMLDevelopmentPage() {
         <section className="section-padding bg-gradient-to-r from-primary to-secondary">
           <div className="container">
             <div className="max-w-4xl mx-auto text-center">
+              
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-700">AI & ML Development</h1>
               <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed">
                 Transform your business with custom AI and machine learning solutions that drive innovation, automate

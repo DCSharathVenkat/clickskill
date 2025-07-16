@@ -50,7 +50,7 @@ export function StatsSection() {
           {stats.map((stat, index) => (
             <div key={stat.label} className="text-center group" style={{ animationDelay: `${index * 200}ms` }}>
               <div className="mb-4">
-                <span className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+<span className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#0A6373] to-[#E66C6C] bg-clip-text text-transparent">
                   {isVisible ? <CountUp end={stat.number} suffix={stat.suffix} /> : "0"}
                 </span>
               </div>
@@ -59,7 +59,7 @@ export function StatsSection() {
               </h3>
               <p className="text-neutral-600 text-sm leading-relaxed">{stat.description}</p>
             </div>
-          ))}
+          ))} 
         </div>
       </div>
     </section>

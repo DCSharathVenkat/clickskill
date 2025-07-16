@@ -30,7 +30,7 @@ export function CTASection() {
             ClickSkill's expertise.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center ">
             <Button
               variant="outline"
               size="lg"
@@ -45,7 +45,7 @@ export function CTASection() {
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto mb-12">
+          {/*<div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto mb-12">
             <div className="text-center">
               <div className="text-2xl font-bold mb-2">Free</div>
               <div className="text-white/80">Initial Consultation</div>
@@ -58,10 +58,10 @@ export function CTASection() {
               <div className="text-2xl font-bold mb-2">30 Days</div>
               <div className="text-white/80">Project Kickoff</div>
             </div>
-          </div>
+          </div>*/}
 
           {/* Newsletter Section */}
-          <div className="border-t border-white/20 pt-12">
+          {/*<div className="border-t border-white/20 pt-12">
             <div className="max-w-2xl mx-auto">
               <h3 className="text-2xl font-bold mb-4">Stay Updated with ClickSkill</h3>
               <p className="text-white/80 mb-6">
@@ -84,7 +84,7 @@ export function CTASection() {
                 </Button>
               </form>
             </div>
-          </div>
+          </div>*/}
         </div>
       </div>
     </section>

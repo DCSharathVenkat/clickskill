@@ -8,8 +8,7 @@ import {
   Menu, LayoutDashboard, Lightbulb, Settings, TrendingUp,
   Database, Users, Rocket, GraduationCap, ShieldCheck,
   Smartphone, Brain, Stethoscope, Repeat, Banknote, Factory,
-  ShoppingCart, Trophy, CheckCircle2, Calculator, BookOpen,
-  FileText, Phone
+  ShoppingCart, Trophy, CheckCircle2, Calculator, Phone
 } from "lucide-react"
 import {
   NavigationMenu,
@@ -52,12 +51,8 @@ const industries = [
 const resources = [
   { icon: <CheckCircle2 size={16} />, name: "AI Readiness Checker", href: "/resources/ai-readiness-checker" },
   { icon: <Calculator size={16} />, name: "Project Cost Calculator", href: "/resources/cost-calculator" },
-  //{ icon: <LayoutDashboard size={16} />, name: "Case Studies", href: "/resources/case-studies" },
-  //{ icon: <BookOpen size={16} />, name: "White Papers", href: "/resources/white-papers" },
-  //{ icon: <FileText size={16} />, name: "Articles", href: "/resources/articles" },
   { icon: <Phone size={16} />, name: "Contact Us", href: "/contact" },
 ]
-
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -73,40 +68,28 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Determine if header should be transparent (only on home page and when not scrolled)
-  const isTransparent = isHomePage && !isScrolled
-
   return (
     <>
-      <a href="#main-content" className="skip-link">
-        Skip to main content
-      </a>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <header
-        className={cn(
-          "fixed top-0 z-50 w-full transition-all duration-500 ease-out",
-          isTransparent
-            ? "bg-transparent backdrop-blur-sm"
-            : "bg-white/95 backdrop-blur-xl shadow-sm border-b border-gray-100",
-        )}
-      >
+  className={cn(
+    "fixed top-0 z-50 w-full transition-all duration-500 ease-out",
+    isScrolled
+      ? "bg-white/95 backdrop-blur-xl shadow-sm border-b border-gray-100"
+      : "bg-transparent"
+  )}
+>
+
         <div className="container">
           <div className="flex h-16 items-center justify-between lg:h-20">
-            <Link href="/" className="flex items-center space-x-2 group">  
-        <img
-          src="/images/clickskill-logo.png"
-          alt="ClickSkill Logo"
-          className="h-7 w-auto text:White transition-transform duration-300 group-hover:scale-110"
-          style={{
-    filter: isTransparent ? "invert(1) brightness(2)" : "invert(0) brightness(1)",
-  }}
-        />
-
-              <span
-                className={cn(
-                  "text-xl lg:text-3xl font-bold transition-colors duration-300 leading-none",
-                  isTransparent ? "text-white" : "text-slate",
-                )}
-              >
+            <Link href="/" className="flex items-center space-x-2 group">
+              <img
+                src="/images/clickskill-logo.png"
+                alt="ClickSkill Logo"
+                className="h-7 w-auto transition-transform duration-300 group-hover:scale-110"
+                style={{ filter: "invert(0) brightness(1)" }}
+              />
+              <span className="text-xl lg:text-3xl font-bold text-slate leading-none transition-colors duration-300">
                 ClickSkill
               </span>
             </Link>
@@ -114,171 +97,50 @@ export function Header() {
             {/* Desktop Navigation */}
             <NavigationMenu className="hidden lg:flex">
               <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuLink asChild>
-                    <Link
-                      href="/about"
-                      className={cn(
-                        "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-lg font-medium transition-colors hover:bg-white/10 focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50",
-                        isTransparent
-                          ? "text-white/90 hover:text-white"
-                          : "text-slate hover:bg-gray-100 hover:text-primary",
-                      )}
-                    >
-                      About
-                    </Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-
-
-
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger
-                    className={cn(
-                        "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-lg font-medium transition-colors hover:bg-white/10 focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50",
-
-                      isTransparent
-                        ? "text-white/90 hover:text-white"
-                        : "text-slate hover:bg-gray-100 hover:text-primary",
-                    )}
-                  >
-                    
-                    
-
-
-                    
-                    Services
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent className="min-w-[300px] ">
-
-                    <div className="grid w-[600px] gap-3 p-4 md:grid-cols-2">
-{services.map((service) => (
-  <NavigationMenuLink key={service.name} asChild>
-    <Link
-      href={service.href}
-      className="flex items-start gap-3 select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-    >
-      <span className="mt-1 text-muted-foreground">{service.icon}</span>
-      <span>
-        <div className="text-sm font-medium leading-none">{service.name}</div>
-        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{service.description}</p>
-      </span>
-    </Link>
-  </NavigationMenuLink>
-))}
-
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger
-                    className={cn(
-                    "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-lg font-medium transition-colors hover:bg-white/10 focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50",
-
-                      isTransparent
-                        ? "text-white/90 hover:text-white"
-                        : "text-slate hover:bg-gray-100 hover:text-primary",
-                    )}
-                  >
-                    Solutions
-                  </NavigationMenuTrigger>
-<NavigationMenuContent>
-  <div className="relative">
-    <div className="grid w-[400px] gap-1 p-4">
-      {solution.map((solution) => (
-        <NavigationMenuLink key={solution.name} asChild>
-          <Link
-            href={solution.href}
-            className="flex items-center gap-3 rounded-md p-2 text-sm font-medium text-slate-700 transition-colors hover:bg-accent hover:text-accent-foreground"
-          >
-            <span className="text-muted-foreground">{solution.icon}</span>
-            <span>{solution.name}</span>
-          </Link>
-        </NavigationMenuLink>
-      ))}
-    </div>
-  </div>
-</NavigationMenuContent>
-
-
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger
-                    className={cn(
-                          "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-lg font-medium transition-colors hover:bg-white/10 focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50",
-
-                      isTransparent
-                        ? "text-white/90 hover:text-white"
-                        : "text-slate hover:bg-gray-100 hover:text-primary",
-                    )}
-                  >
-                    Industries
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid w-[400px] gap-3 p-4">
-{industries.map((industries) => (
-                        <NavigationMenuLink key={industries.name} asChild>
-                          <Link
-                            href={industries.href}
-                            className="flex items-start gap-3 select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                          >
-                                    <span className="mt-1 text-muted-foreground">{industries.icon}</span>
-      <span>
-        <div className="text-sm font-medium leading-none">{industries.name}</div>
-      </span>
-                          </Link>
-                        </NavigationMenuLink>
-                      ))}
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger
-                    className={cn(
-                          "group inline-flex h-10 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-lg font-medium transition-colors hover:bg-white/10 focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50",
-
-                      isTransparent
-                        ? "text-white/90 hover:text-white"
-                        : "text-slate hover:bg-gray-100 hover:text-primary",
-                    )}
-                  >
-                    Resources
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid w-[400px] gap-3 p-4">
-{resources.map((resources) => (
-                        <NavigationMenuLink key={resources.name} asChild>
-                          <Link
-                            href={resources.href}
-                            className="flex items-start gap-3 select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                          >
-                                    <span className="mt-1 text-muted-foreground">{resources.icon}</span>
-      <span>
-        <div className="text-sm font-medium leading-none">{resources.name}</div>
-      </span>
-                          </Link>
-                        </NavigationMenuLink>
-                      ))}
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
+                {[
+                  { name: "About", href: "/about" },
+                  { name: "Services", menu: services },
+                  { name: "Solutions", menu: solution },
+                  { name: "Industries", menu: industries },
+                  { name: "Resources", menu: resources },
+                ].map((item) =>
+                  item.menu ? (
+                    <NavigationMenuItem key={item.name}>
+                      <NavigationMenuTrigger className="text-slate hover:bg-gray-100 hover:text-primary px-4 py-2 text-lg font-medium bg-transparent rounded-md transition">
+                        {item.name}
+                      </NavigationMenuTrigger>
+                      <NavigationMenuContent className="min-w-[300px] left-0">
+                        <div className="grid w-[600px] gap-3 p-4 md:grid-cols-2">
+                          {item.menu.map((menuItem) => (
+                            <NavigationMenuLink key={menuItem.name} asChild>
+                              <Link href={menuItem.href} className="flex items-start gap-3 p-3 rounded-md hover:bg-accent transition">
+                                <span className="mt-1 text-muted-foreground">{menuItem.icon}</span>
+                                <span>
+                                  <div className="text-sm font-medium">{menuItem.name}</div>
+                                  {menuItem.description && <p className="text-sm text-muted-foreground">{menuItem.description}</p>}
+                                </span>
+                              </Link>
+                            </NavigationMenuLink>
+                          ))}
+                        </div>
+                      </NavigationMenuContent>
+                    </NavigationMenuItem>
+                  ) : (
+                    <NavigationMenuItem key={item.name}>
+                      <NavigationMenuLink asChild>
+                        <Link href={item.href} className="text-slate hover:bg-gray-100 hover:text-primary px-4 py-2 text-lg font-medium bg-transparent rounded-md transition">
+                          {item.name}
+                        </Link>
+                      </NavigationMenuLink>
+                    </NavigationMenuItem>
+                  )
+                )}
               </NavigationMenuList>
             </NavigationMenu>
 
             {/* CTA Button */}
             <div className="hidden items-center lg:flex">
-              <Button
-                asChild
-                className={cn(
-                  "rounded-full px-6 py-2 font-medium transition-all duration-300 hover:scale-105",
-                  isTransparent
-                    ? "bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 hover:border-white/30"
-                    : "bg-[#555879] text-white hover:bg-[#04a5ab]",
-                )}
-              >
+<Button className="rounded-full px-6 py-2 font-medium bg-[#0A6373] text-white hover:bg-[#04a5ab] transition-all duration-300 hover:scale-105">
                 <Link href="/consultation">Get Consultation</Link>
               </Button>
             </div>
@@ -286,82 +148,22 @@ export function Header() {
             {/* Mobile Menu */}
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild className="lg:hidden">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className={cn(
-                    "transition-colors duration-300",
-                    isTransparent ? "text-white hover:bg-white/10" : "text-slate hover:bg-gray-100",
-                  )}
-                >
+                <Button variant="ghost" size="icon" className="text-slate hover:bg-gray-100">
                   <Menu className="h-6 w-6" />
                   <span className="sr-only">Toggle menu</span>
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                 <div className="flex flex-col space-y-4 mt-8">
-                  <Link
-                    href="/about"
-                    className="block px-2 py-1 text-sm hover:bg-accent rounded font-semibold"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    About
-                  </Link>
-                  <div className="space-y-2">
-                    <h3 className="font-semibold">Services</h3>
-                    {services.map((service) => (
-                      <Link
-                        key={service.name}
-                        href={service.href}
-                        className="block px-2 py-1 text-sm hover:bg-accent rounded"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {service.name}
-                      </Link>
-                    ))}
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="font-semibold">Solutions</h3>
-                    {solution.map((solution) => (
-                      <Link
-                        key={solution.name}
-                        href={solution.href}
-                        className="block px-2 py-1 text-sm hover:bg-accent rounded"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {solution.name}
-                      </Link>
-                    ))}
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="font-semibold">Industries</h3>
-                    {industries.map((industry) => (
-                      <Link
-                        key={industry.name}
-                        href={industry.href}
-                        className="block px-2 py-1 text-sm hover:bg-accent rounded"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {industry.name}
-                      </Link>
-                    ))}
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="font-semibold">Resources</h3>
-                    {resources.map((resource) => (
-                      <Link
-                        key={resource.name}
-                        href={resource.href}
-                        className="block px-2 py-1 text-sm hover:bg-accent rounded"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {resource.name}
-                      </Link>
-                    ))}
-                  </div>
-                  <div className="flex flex-col space-y-2 pt-4">
- 
-                  </div>
+                  <Link href="/about" className="block px-2 py-1 text-sm hover:bg-accent rounded font-semibold" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
+                  {[{ title: "Services", list: services }, { title: "Solutions", list: solution }, { title: "Industries", list: industries }, { title: "Resources", list: resources }].map((section) => (
+                    <div className="space-y-2" key={section.title}>
+                      <h3 className="font-semibold">{section.title}</h3>
+                      {section.list.map((item) => (
+                        <Link key={item.name} href={item.href} className="block px-2 py-1 text-sm hover:bg-accent rounded" onClick={() => setIsMobileMenuOpen(false)}>{item.name}</Link>
+                      ))}
+                    </div>
+                  ))}
                 </div>
               </SheetContent>
             </Sheet>

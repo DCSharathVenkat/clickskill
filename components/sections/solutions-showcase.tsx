@@ -1,114 +1,174 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Smartphone, Brain, Heart, Building } from "lucide-react"
-import Link from "next/link"
+'use client'
+
+import Image from 'next/image'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { ArrowRight, Smartphone, Brain, Heart, Building } from 'lucide-react'
+import { Card, CardContent } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
 
 const solutions = [
   {
     icon: Smartphone,
-    title: "Enterprise Mobility",
+    title: 'Enterprise Mobility',
     description:
-      "Comprehensive mobile solutions that enable workforce productivity and customer engagement across all devices.",
-    features: ["Cross-platform development", "Enterprise security", "Offline capabilities", "Real-time sync"],
-    href: "/solutions/enterprise-mobility",
-    color: "from-primary to-primary/80",
+      'Mobile solutions for workforce productivity and customer engagement across all devices.',
+    href: '/solutions/enterprise-mobility',
   },
   {
     icon: Brain,
-    title: "AI Solutions",
+    title: 'AI Solutions',
     description:
-      "Intelligent automation and AI-powered insights that transform business processes and decision-making.",
-    features: ["Machine learning models", "Natural language processing", "Computer vision", "Predictive analytics"],
-    href: "/solutions/ai-solutions",
-    color: "from-secondary to-secondary/80",
+      'AI-powered insights and automation to transform business processes.',
+    href: '/solutions/ai-solutions',
   },
   {
     icon: Heart,
-    title: "Digital Healthcare",
-    description: "HIPAA-compliant healthcare solutions that improve patient outcomes and streamline medical workflows.",
-    features: ["Telemedicine platforms", "EHR integration", "Patient portals", "Medical IoT"],
-    href: "/solutions/digital-healthcare",
-    color: "from-primary to-primary/80",
+    title: 'Digital Healthcare',
+    description:
+      'HIPAA-compliant platforms that streamline care and improve outcomes.',
+    href: '/solutions/digital-healthcare',
   },
   {
     icon: Building,
-    title: "Enterprise Digital Transformation",
-    description: "End-to-end digital transformation strategies that modernize legacy systems and processes.",
-    features: ["Legacy modernization", "Cloud migration", "Process automation", "Change management"],
-    href: "/solutions/enterprise-digital-transformation",
-    color: "from-secondary to-secondary/80",
+    title: 'Digital Transformation',
+    description:
+      'Modernizing legacy systems through end-to-end digital strategies.',
+    href: '/solutions/enterprise-digital-transformation',
   },
 ]
 
 export function SolutionsShowcase() {
   return (
-    <section className="section-padding bg-white">
-      <div className="container">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate mb-6">Industry-Leading Solutions</h2>
-          <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-            Tailored solutions that address specific industry challenges and drive measurable business outcomes across
-            diverse sectors.
-          </p>
-        </div>
+    <section className="relative w-full pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden bg-white text-gray-900">
+      {/* Optional Background */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Image
+          src="/images/bgmainhero.png"
+          alt="Background Graphic"
+          fill
+          className="object-cover"
+        />
+      </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-          {solutions.map((solution, index) => {
-            const Icon = solution.icon
-            return (
-              <Card
-                key={solution.title}
-                className="group hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg overflow-hidden"
+      <div className="relative z-10 container mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
+        {/* Left: Animated Image */}
+        <motion.div
+          className="w-full lg:w-1/2 mt-0 lg:-mt-16"
+          initial={{ opacity: 0, x: 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2, ease: 'easeOut' }}
+          viewport={{ once: true }}
+        >
+          <motion.div
+            animate={{ y: [0, -15, 0] }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              repeatType: 'loop',
+              ease: 'easeInOut',
+            }}
+          >
+            <Image
+              src="/images/illust.png"
+              alt="Solutions Image"
+              width={600}
+              height={500}
+              className="mx-auto drop-shadow-xl"
+            />
+          </motion.div>
+        </motion.div>
+
+        {/* Right: Text and Cards */}
+        <motion.div
+          className="w-full lg:w-1/2 text-left"
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          viewport={{ once: true }}
+        >
+          <motion.h2
+            className="text-4xl md:text-5xl font-bold mb-6 text-slate"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Tailored Digital Solutions
+          </motion.h2>
+
+          <motion.p
+            className="text-lg text-neutral-600 mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            Scalable, secure, and future-ready platforms for every business need.
+          </motion.p>
+
+<div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-stretch">
+  {solutions.map((solution, index) => {
+    const Icon = solution.icon
+    return (
+      <motion.div
+        key={solution.title}
+        className="h-full"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+        viewport={{ once: true }}
+      >
+        <Card className="h-full group transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-xl border-0 bg-white">
+          <CardContent className="p-5 flex flex-col gap-4 h-full justify-between">
+            <div className="flex gap-4 items-start">
+              <div className="p-3 bg-primary/10 rounded-lg group-hover:animate-bounce transition-all duration-300">
+                <Icon className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold mb-1 text-slate group-hover:text-primary transition-colors">
+                  {solution.title}
+                </h3>
+                <p className="text-sm text-neutral-600">
+                  {solution.description}
+                </p>
+              </div>
+            </div>
+            <div className="mt-4">
+              <Link
+                href={solution.href}
+                className="text-primary text-sm font-medium inline-flex items-center hover:underline"
               >
-                <div className={`h-2 bg-gradient-to-r ${solution.color}`} />
-                <CardContent className="p-8">
-                  <div className="flex items-start space-x-4 mb-6">
-                    <div
-                      className={`w-16 h-16 rounded-xl bg-gradient-to-r ${solution.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      <Icon className="h-8 w-8 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-slate mb-3 group-hover:text-primary transition-colors">
-                        {solution.title}
-                      </h3>
-                      <p className="text-neutral-600 leading-relaxed">{solution.description}</p>
-                    </div>
-                  </div>
+                Learn more <ArrowRight className="ml-1 w-4 h-4" />
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
+    )
+  })}
+</div>
 
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-slate mb-3">Key Features:</h4>
-                    <div className="grid grid-cols-2 gap-2">
-                      {solution.features.map((feature) => (
-                        <div key={feature} className="flex items-center text-sm text-neutral-600">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2" />
-                          {feature}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
 
-                  <Link
-                    href={solution.href}
-                    className="inline-flex items-center text-primary hover:text-primary/80 font-medium group-hover:translate-x-2 transition-all duration-300"
-                  >
-                    Explore Solution
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </CardContent>
-              </Card>
-            )
-          })}
-        </div>
-
-        <div className="text-center">
-          <Button size="lg" asChild className="bg-[#038f94] text-white hover:bg-[#04a5ab]">
-            <Link href="/solutions">
-              View All Solutions
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
-        </div>
+          <motion.div
+            className="mt-10"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <Button
+              size="lg"
+              asChild
+              className="bg-[#0A6373] text-white hover:bg-[#04a5ab] transition-all duration-300 hover:scale-105"
+            >
+              <Link href="/solutions">
+                View All Solutions
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )
