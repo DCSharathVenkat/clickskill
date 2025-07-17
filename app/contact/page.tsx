@@ -69,7 +69,7 @@ export default function ContactPage() {
     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
       Let's Build Something Amazing Together
     </h1>
-    <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed max-w-3xl">
+    <p className="text-xl md:text-2xl mb-8 text-gray-800 leading-relaxed max-w-3xl">
       Ready to transform your business with cutting-edge technology? Our experts are here to help you every step
       of the way.
     </p>

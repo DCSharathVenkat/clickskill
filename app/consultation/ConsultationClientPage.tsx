@@ -321,7 +321,7 @@ export default function ConsultationClientPage() {
                     <Phone className="h-5 w-5 text-primary" />
                     <div>
                       <p className="font-medium">Phone</p>
-                      <p className="text-sm text-gray-600">+1 (555) 123-4567</p>
+                      <p className="text-sm text-gray-600">+1 (571) 600-4595</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-3">
