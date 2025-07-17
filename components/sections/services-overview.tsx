@@ -98,7 +98,7 @@ export function ServicesOverview() {
           viewport={{ once: true, amount: 0.4 }}
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate mb-6">
-            Comprehensive Technology Services
+            Comprehensive <br/>Technology Services
           </h2>
           <p className="text-lg text-neutral-600 mb-10 max-w-2xl">
             From AI innovation to digital transformation, we deliver end-to-end solutions that drive measurable business outcomes for global enterprises.

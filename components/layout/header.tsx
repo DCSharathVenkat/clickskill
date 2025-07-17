@@ -5,10 +5,9 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import {
-  Menu, LayoutDashboard, Lightbulb, Settings, TrendingUp,
-  Database, Users, Rocket, GraduationCap, ShieldCheck,
-  Smartphone, Brain, Stethoscope, Repeat, Banknote, Factory,
-  ShoppingCart, Trophy, CheckCircle2, Calculator, Phone
+  Menu, Lightbulb, Settings, TrendingUp, Database, Users, Rocket,
+  GraduationCap, ShieldCheck, Smartphone, Brain, Stethoscope, Repeat,
+  Banknote, Factory, ShoppingCart, Trophy, CheckCircle2, Calculator, Phone, ChevronDown
 } from "lucide-react"
 import {
   NavigationMenu,
@@ -58,7 +57,6 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname()
-  const isHomePage = pathname === "/"
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,16 +68,10 @@ export function Header() {
 
   return (
     <>
-      <a href="#main-content" className="skip-link">Skip to main content</a>
-      <header
-  className={cn(
-    "fixed top-0 z-50 w-full transition-all duration-500 ease-out",
-    isScrolled
-      ? "bg-white/95 backdrop-blur-xl shadow-sm border-b border-gray-100"
-      : "bg-transparent"
-  )}
->
-
+      <header className={cn(
+        "fixed top-0 z-50 w-full transition-all duration-500 ease-out",
+        isScrolled ? "bg-white/95 backdrop-blur-xl shadow-sm border-b border-gray-100" : "bg-transparent"
+      )}>
         <div className="container">
           <div className="flex h-16 items-center justify-between lg:h-20">
             <Link href="/" className="flex items-center space-x-2 group">
@@ -87,28 +79,21 @@ export function Header() {
                 src="/images/clickskill-logo.png"
                 alt="ClickSkill Logo"
                 className="h-7 w-auto transition-transform duration-300 group-hover:scale-110"
-                style={{ filter: "invert(0) brightness(1)" }}
               />
               <span className="text-xl lg:text-3xl font-bold text-slate leading-none transition-colors duration-300">
                 ClickSkill
               </span>
             </Link>
 
-            {/* Desktop Navigation */}
             <NavigationMenu className="hidden lg:flex">
               <NavigationMenuList>
-                {[
-                  { name: "About", href: "/about" },
-                  { name: "Services", menu: services },
-                  { name: "Solutions", menu: solution },
-                  { name: "Industries", menu: industries },
-                  { name: "Resources", menu: resources },
-                ].map((item) =>
+                {[{ name: "About", href: "/about" }, { name: "Services", menu: services }, { name: "Solutions", menu: solution }, { name: "Industries", menu: industries }, { name: "Resources", menu: resources }].map((item) =>
                   item.menu ? (
                     <NavigationMenuItem key={item.name}>
-                      <NavigationMenuTrigger className="text-slate hover:bg-gray-100 hover:text-primary px-4 py-2 text-lg font-medium bg-transparent rounded-md transition">
-                        {item.name}
-                      </NavigationMenuTrigger>
+ <NavigationMenuTrigger className="relative text-slate hover:bg-sky-100 hover:text-primary px-4 py-2 text-lg font-medium bg-transparent rounded-md transition">
+  {item.name}
+</NavigationMenuTrigger>
+
                       <NavigationMenuContent className="min-w-[300px] left-0">
                         <div className="grid w-[600px] gap-3 p-4 md:grid-cols-2">
                           {item.menu.map((menuItem) => (
@@ -138,19 +123,16 @@ export function Header() {
               </NavigationMenuList>
             </NavigationMenu>
 
-            {/* CTA Button */}
             <div className="hidden items-center lg:flex">
-<Button className="rounded-full px-6 py-2 font-medium bg-[#0A6373] text-white hover:bg-[#04a5ab] transition-all duration-300 hover:scale-105">
+              <Button className="rounded-full px-6 py-2 font-medium bg-[#0A6373] text-white hover:bg-[#04a5ab] transition-all duration-300 hover:scale-105">
                 <Link href="/consultation">Get Consultation</Link>
               </Button>
             </div>
 
-            {/* Mobile Menu */}
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild className="lg:hidden">
                 <Button variant="ghost" size="icon" className="text-slate hover:bg-gray-100">
                   <Menu className="h-6 w-6" />
-                  <span className="sr-only">Toggle menu</span>
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">

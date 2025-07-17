@@ -62,19 +62,18 @@ const relatedSolutions = [
 
 export default function DigitalHealthcarePage() {
    return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white pt-20">
       {/* Hero Section */}
-      <section className="relative w-full pt-24 pb-32 overflow-hidden bg-white text-gray-900">
+      <section className="relative w-full pt-24 pb-32 overflow-hidden bg-white text-gray-900 ">
         <div className="absolute inset-0 z-0">
           <Image src="/images/bgmainhero.png" alt="Hero Background" fill className="object-cover" priority />
         </div>
-        <div className="relative z-10 container mx-auto px-6 text-center">
+        <div className="relative z-10 container mx-auto px-6 text-center ">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-800">
-            Project Cost Calculator
+            Digital Healthcare Solutions
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-700 leading-relaxed">
-            Get an instant estimate for your project. Our calculator uses real market data and our extensive project
-            experience to provide accurate cost projections.
+            Unlock instant insights into your digital transformation costs, timelines, and ROI—powered by real data and proven expertise.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-blue-300 hover:bg-blue-400 text-white shadow-lg hover:shadow-xl" asChild>
