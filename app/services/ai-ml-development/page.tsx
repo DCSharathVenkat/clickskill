@@ -178,7 +178,7 @@ export default function AIMLDevelopmentPage() {
   {/* Content */}
   <div className="relative z-10 container mx-auto px-6 flex flex-col items-center text-center">
     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-800">AI & ML Development</h1>
-    <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed max-w-3xl">
+    <p className="text-xl md:text-2xl mb-8 text-gray-800 leading-relaxed max-w-3xl">
       Transform your business with custom AI and machine learning solutions that drive innovation, automate processes, and unlock new opportunities.
     </p>
     <Button size="lg" className="bg-blue-300 hover:bg-blue-400 text-white shadow-lg hover:shadow-xl" asChild>

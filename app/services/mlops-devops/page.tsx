@@ -77,7 +77,7 @@ export default function MLOpsDevOpsPage() {
 
         <div className="relative z-10 container mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-800">MLOps & DevOps</h1>
-          <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed">
+          <p className="text-xl md:text-2xl mb-8 text-gray-800 leading-relaxed">
             Streamline your ML model deployment and operations with our comprehensive MLOps and DevOps solutions. From
             development to production, we ensure reliable, scalable, and efficient ML workflows.
           </p>
