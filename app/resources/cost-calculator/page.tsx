@@ -122,7 +122,7 @@ return (
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-800">
             Project Cost Calculator
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed max-w-3xl">
+          <p className="text-xl md:text-2xl mb-8 text-gray-800 leading-relaxed max-w-3xl">
             Get an instant estimate for your project. Our calculator uses real market data and our extensive project
             experience to provide accurate cost projections.
           </p>

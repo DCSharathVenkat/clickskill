@@ -108,12 +108,6 @@ export function TestimonialsSection() {
         </div>
 
         <div className="mt-12">
-          <Button
-            size="lg"
-            className="bg-[#0A6373] text-white hover:bg-[#04a5ab] transition-all duration-300 hover:scale-105"
-          >
-            Work With Us
-          </Button>
         </div>
       </div>
     </section>

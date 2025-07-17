@@ -176,7 +176,7 @@ export default function AIReadinessCheckerPage() {
         />
         <div className="relative z-10 text-center max-w-4xl px-6 text-white">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-800">AI Readiness Checker</h1>
-          <p className="text-xl md:text-2xl mb-6 text-white/90 leading-relaxed">
+          <p className="text-xl md:text-2xl mb-6 text-gray-800 leading-relaxed">
             Assess your organization's readiness for AI implementation and get personalized recommendations for your AI journey.
           </p>
         </div>

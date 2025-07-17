@@ -117,7 +117,8 @@ export function HeroSection() {
   transition={{ duration: 1.2, ease: 'easeOut' }}
 >
   {/* Larger iPhone image */}
-  <motion.div
+<motion.div
+  style={{ marginTop: '200px' }}
   animate={{ y: [0, -15, 0] }}
   transition={{
     duration: 2,
@@ -125,17 +126,16 @@ export function HeroSection() {
     repeatType: 'loop',
     ease: 'easeInOut',
   }}
-  
 >
   <Image
     src="/images/iphone.png"
     alt="Mobile Interface"
-    width={1000}
-    height={800}
-    className="mx-auto drop-shadow-xl"
+    width={800}           
+    height={2400}          
     priority
   />
 </motion.div>
+
 
 
   {/* iPad image */}
@@ -152,7 +152,7 @@ export function HeroSection() {
       src="/images/ipad.png"
       alt="Tablet Interface"
       width={1800}
-      height={500}
+      height={1500}
       className="mx-auto drop-shadow-xl"
       priority
     />
