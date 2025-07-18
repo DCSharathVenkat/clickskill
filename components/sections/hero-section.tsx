@@ -19,8 +19,8 @@ import { motion } from 'framer-motion'
 export function HeroSection() {
   const [typedText1, setTypedText1] = useState('')
   const [typedText2, setTypedText2] = useState('')
-  const fullText1 = 'AI-Powered'
-  const fullText2 = 'Innovation'
+  const fullText1 = 'Engineering Solutions'
+  const fullText2 = 'That Deliver Results'
 
   useEffect(() => {
     let index = 0
@@ -81,18 +81,17 @@ export function HeroSection() {
           className="w-full lg:w-1/2 text-center lg:text-left"
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <h1 className="lg:text-4xl font-extrabold leading-snug mb-6">
-            Empower Your Business with<br />{' '}
-            <span className="whitespace-nowrap bg-gradient-to-r from-[#b5331f] via-[#d4471f] to-[#f97316] bg-clip-text text-transparent">
-              {typedText1} {typedText2}
+          <h1 className="lg:text-5xl font-extrabold leading-snug mb-6">
+            <br />{' '}
+            <span className="whitespace-nowrap text-black">
+              {typedText1} <br/> {typedText2}
             </span>
           </h1>
 
           <p className="text-lg text-gray-700 mb-10">
-            Scalable technology, enterprise-grade innovation and next-gen AI capabilities — all in one platform
-            designed to accelerate your growth.
+            ClickSkill help enterprises build, integrate, and scale intelligent products with a focus on security, performance, and lasting transformation.
           </p>
 
           {/* Icons with tooltips */}
@@ -108,36 +107,6 @@ export function HeroSection() {
             ))}
           </div>
         </motion.div>
-
-        {/* Right images (Mobile and Tablet) */}
-        <motion.div
-  className="w-full lg:w-1/2 flex items-center justify-center space-x-[-60px] lg:space-x-[-80px] mt-0 lg:-mt-50"
-  initial={{ opacity: 0, x: 60 }}
-  animate={{ opacity: 1, x: 0 }}
-  transition={{ duration: 1.2, ease: 'easeOut' }}
->
-  {/* Larger iPhone image */}
-<motion.div
-  style={{ marginTop: '200px' }}
-  animate={{ y: [0, -15, 0] }}
-  transition={{
-    duration: 2,
-    repeat: Infinity,
-    repeatType: 'loop',
-    ease: 'easeInOut',
-  }}
->
-  <Image
-    src="/images/iphone.png"
-    alt="Mobile Interface"
-    width={800}           
-    height={2400}          
-    priority
-  />
-</motion.div>
-
-
-
   {/* iPad image */}
   <motion.div
     animate={{ y: [0, -15, 0] }}
@@ -149,15 +118,14 @@ export function HeroSection() {
     }}
   >
     <Image
-      src="/images/ipad.png"
+      src="/images/heropic.png"
       alt="Tablet Interface"
-      width={1800}
-      height={1500}
+      width={800}
+      height={700}
       className="mx-auto drop-shadow-xl"
       priority
     />
   </motion.div>
-</motion.div>
 
       </div>
 

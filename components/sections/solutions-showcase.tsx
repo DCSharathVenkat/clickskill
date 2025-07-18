@@ -119,31 +119,27 @@ export function SolutionsShowcase() {
         transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
         viewport={{ once: true }}
       >
-        <Card className="h-full group transition-all duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-xl border-0 bg-white">
-          <CardContent className="p-5 flex flex-col gap-4 h-full justify-between">
-            <div className="flex gap-4 items-start">
-              <div className="p-3 bg-primary/10 rounded-lg group-hover:animate-bounce transition-all duration-300">
-                <Icon className="w-6 h-6 text-primary" />
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold mb-1 text-slate group-hover:text-primary transition-colors">
-                  {solution.title}
-                </h3>
-                <p className="text-sm text-neutral-600">
-                  {solution.description}
-                </p>
-              </div>
-            </div>
-            <div className="mt-4">
-              <Link
-                href={solution.href}
-                className="text-primary text-sm font-medium inline-flex items-center hover:underline"
-              >
-                Learn more <ArrowRight className="ml-1 w-4 h-4" />
-              </Link>
-            </div>
-          </CardContent>
-        </Card>
+<Card
+                  key={solution.title}
+                  className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-0 shadow-sm"
+                >
+                  <CardContent className="p-6">
+                    <div className="w-8 h-8 rounded-lg flex items-center justify-center mb-4 bg-gray-100 group-hover:scale-110 transition-transform duration-300">
+                      <Icon className="h-6 w-6 text-black" />
+                    </div>
+                    <h3 className="text-lg font-semibold mb-3 text-black group-hover:text-primary">
+                      {solution.title}
+                    </h3>
+                    <p className="text-neutral-600 text-sm mb-4 leading-relaxed">{solution.description}</p>
+                    <Link
+                      href={solution.href}
+                      className="inline-flex items-center text-black hover:text-primary/80 text-sm font-medium group-hover:translate-x-1 transition-transform duration-300"
+                    >
+                      Learn More
+                      <ArrowRight className="ml-1 h-4 w-4" />
+                    </Link>
+                  </CardContent>
+                </Card>
       </motion.div>
     )
   })}

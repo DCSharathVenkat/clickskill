@@ -92,11 +92,11 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
-    yahoo: "your-yahoo-verification-code",
-  },
+verification: {
+  google: process.env.NEXT_PUBLIC_VERIFICATION_GOOGLE,
+  yandex: process.env.NEXT_PUBLIC_VERIFICATION_YANDEX,
+}
+,
   category: "Technology",
     generator: 'v0.dev'
 }

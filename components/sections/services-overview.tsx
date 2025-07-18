@@ -33,6 +33,21 @@ const services = [
       "End-to-end product development from concept to deployment with cutting-edge technologies.",
     href: "/services/product-engineering",
   },
+    {
+    icon: Zap,
+    title: "Digital Transformation",
+    description:
+      "Comprehensive digital modernization strategies to accelerate your business growth.",
+    href: "/services/digital-transformation",
+  },
+  
+  {
+    icon: Shield,
+    title: "Governance, Risk & Compliance",
+    description:
+      "Comprehensive GRC services including cybersecurity, data protection, and risk advisory.",
+    href: "/services/grc",
+  },
   {
     icon: Cloud,
     title: "MLOps & DevOps",
@@ -40,13 +55,14 @@ const services = [
       "Streamlined deployment, monitoring, and operations for ML models and applications.",
     href: "/services/mlops-devops",
   },
-  {
-    icon: Zap,
-    title: "Digital Transformation",
+    {
+    icon: GraduationCap,
+    title: "EdTech Development",
     description:
-      "Comprehensive digital modernization strategies to accelerate your business growth.",
-    href: "/services/digital-transformation",
+      "Educational technology solutions that transform learning experiences and outcomes.",
+    href: "/services/edtech-development",
   },
+
   {
     icon: Database,
     title: "Data Engineering",
@@ -68,20 +84,7 @@ const services = [
       "Innovation consulting and venture development to explore new business opportunities.",
     href: "/services/corporate-venturing",
   },
-  {
-    icon: GraduationCap,
-    title: "EdTech Development",
-    description:
-      "Educational technology solutions that transform learning experiences and outcomes.",
-    href: "/services/edtech-development",
-  },
-  {
-    icon: Shield,
-    title: "Governance, Risk & Compliance",
-    description:
-      "Comprehensive GRC services including cybersecurity, data protection, and risk advisory.",
-    href: "/services/grc",
-  },
+
 ]
 
 export function ServicesOverview() {
