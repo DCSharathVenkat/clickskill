@@ -84,7 +84,7 @@ export default function EdTechDevelopmentPage() {
             enhance learning experiences and improve educational outcomes.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-blue-300 hover:bg-blue-400 text-white shadow-lg hover:shadow-xl" asChild>
+            <Button size="lg" className="bg-[#0A6373] hover:bg-[#E66C6C] text-white shadow-lg hover:shadow-xl" asChild>
               <Link href="/consultation">
                 Get EdTech Consultation
                 <ArrowRight className="ml-2 h-5 w-5" />

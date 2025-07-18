@@ -137,7 +137,7 @@ export function ServicesOverview() {
           </div>
 
           <div className="mt-10">
-            <Button size="lg" asChild className="bg-[#0A6373] text-white hover:bg-[#04a5ab] transition-all duration-300 hover:scale-105">
+            <Button size="lg" asChild className="bg-[#0A6373] hover:bg-[#E66C6C]  transition-all duration-300 hover:scale-105">
               <Link href="/services">
                 Explore All Services
                 <ArrowRight className="ml-2 h-5 w-5" />

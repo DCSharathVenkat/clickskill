@@ -4,13 +4,13 @@ import { useEffect, useState } from "react"
 
 const stats = [
   {
-    number: 500,
+    number: 50,
     suffix: "+",
     label: "Projects Delivered",
     description: "Successfully completed projects across industries",
   },
-  { number: 50, suffix: "+", label: "Global Clients", description: "Fortune 500 companies trust our expertise" },
-  { number: 6, suffix: "", label: "Countries", description: "Global presence with local expertise" },
+  { number: 5, suffix: "+", label: "Global Clients", description: "Fortune 500 companies trust our expertise" },
+  { number: 5, suffix: "", label: "Countries", description: "Global presence with local expertise" },
   { number: 99, suffix: "%", label: "Client Satisfaction", description: "Consistently exceeding client expectations" },
 ]
 

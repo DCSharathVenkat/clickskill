@@ -83,7 +83,7 @@ export function HeroSection() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <h1 className="lg:text-5xl font-extrabold leading-snug mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-snug mb-6">
             <br />{' '}
             <span className="whitespace-nowrap text-black">
               {typedText1} <br/> {typedText2}
@@ -108,24 +108,38 @@ export function HeroSection() {
           </div>
         </motion.div>
   {/* iPad image */}
-  <motion.div
-    animate={{ y: [0, -15, 0] }}
-    transition={{
-      duration: 2,
-      repeat: Infinity,
-      repeatType: 'loop',
-      ease: 'easeInOut',
-    }}
-  >
-    <Image
-      src="/images/heropic.png"
-      alt="Tablet Interface"
-      width={800}
-      height={700}
-      className="mx-auto drop-shadow-xl"
-      priority
-    />
-  </motion.div>
+{/* iPad image with fade-in from right to left */}
+<motion.div
+          className="w-full lg:w-1/2"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: 'easeOut', delay: 0.5 }}
+        >
+          <motion.div
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: 'spring', stiffness: 100 }}
+          >
+            <motion.div
+              animate={{ y: [0, -15, 0] }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                repeatType: 'loop',
+                ease: 'easeInOut',
+              }}
+            >
+              <Image
+                src="/images/heropic.png"
+                alt="Tablet Interface"
+                width={850}
+                height={800}
+                className="mx-auto drop-shadow-xl"
+                priority
+              />
+            </motion.div>
+          </motion.div>
+        </motion.div>
+
 
       </div>
 

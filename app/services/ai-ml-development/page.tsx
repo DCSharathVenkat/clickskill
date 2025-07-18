@@ -181,7 +181,7 @@ export default function AIMLDevelopmentPage() {
     <p className="text-xl md:text-2xl mb-8 text-gray-800 leading-relaxed max-w-3xl">
       Transform your business with custom AI and machine learning solutions that drive innovation, automate processes, and unlock new opportunities.
     </p>
-    <Button size="lg" className="bg-blue-300 hover:bg-blue-400 text-white shadow-lg hover:shadow-xl" asChild>
+    <Button size="lg" className="bg-[#0A6373] hover:bg-[#E66C6C] text-white shadow-lg hover:shadow-xl" asChild>
       <Link href="/consultation">
         Get AI Strategy Consultation
         <ArrowRight className="ml-2 h-5 w-5" />

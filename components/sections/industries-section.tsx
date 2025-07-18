@@ -131,7 +131,7 @@ export function IndustriesSection() {
           <Button
             size="lg"
             asChild
-            className="bg-[#0A6373] text-white hover:bg-[#04a5ab] transition-all duration-300 hover:scale-105"
+            className="bg-[#0A6373] hover:bg-[#E66C6C] transition-all duration-300 hover:scale-105"
           >
             <Link href="/industries">
               Explore All Industries

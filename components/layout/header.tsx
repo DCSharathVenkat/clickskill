@@ -77,6 +77,8 @@ export function Header() {
       isScrolled ? "bg-white/95 backdrop-blur-xl shadow-sm border-b border-gray-100" : "bg-transparent"
     )}>
       <div className="container">
+
+        
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2 group">
             <img
@@ -95,9 +97,10 @@ export function Header() {
               {[{ name: "About", href: "/about" }, { name: "Services", menu: services }, { name: "Solutions", menu: solution }, { name: "Industries", menu: industries }, { name: "Resources", menu: resources }].map((item) =>
                 item.menu ? (
                   <NavigationMenuItem key={item.name}>
-                    <NavigationMenuTrigger className="relative text-black hover:bg-sky-100 hover:text-primary px-4 py-2 text-lg font-medium bg-transparent rounded-md transition">
-                      {item.name}
-                    </NavigationMenuTrigger>
+<NavigationMenuTrigger className="relative bg-transparent text-black hover:text-primary px-4 py-2 text-lg font-medium transition">
+  {item.name}
+</NavigationMenuTrigger>
+
                     <NavigationMenuContent>
                       <div className="grid w-[500px] md:grid-cols-2">
                         {item.menu.map((menuItem) => (
@@ -117,7 +120,7 @@ export function Header() {
                 ) : (
                   <NavigationMenuItem key={item.name}>
                     <NavigationMenuLink asChild>
-                      <Link href={item.href} className="text-slate hover:bg-gray-100 hover:text-primary px-4 py-2 text-lg font-medium bg-transparent rounded-md transition">
+                      <Link href={item.href} className="text-black hover:text-primary px-4 py-2 text-lg font-medium bg-transparent rounded-md transition">
                         {item.name}
                       </Link>
                     </NavigationMenuLink>
@@ -128,7 +131,7 @@ export function Header() {
           </NavigationMenu>
 
           <div className="hidden items-center lg:flex">
-            <Button className="rounded-full px-6 py-2 font-medium bg-[#0A6373] text-white hover:bg-[#04a5ab] transition-all duration-300 hover:scale-105">
+            <Button className="rounded-full px-6 py-2 font-medium bg-[#0A6373] hover:bg-[#E66C6C] transition-all duration-300 hover:scale-105">
               <Link href="/consultation">Get Consultation</Link>
             </Button>
           </div>
@@ -141,7 +144,9 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px] overflow-y-auto">
               <div className="flex flex-col space-y-4 mt-8">
-                <Link href="/about" className="hover:bg-sky-100 hover:text-primary px-4 py-2 text-lg font-medium bg-transparent rounded-md transition" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
+<Link href="/about" className="text-black hover:bg-sky-100 hover:text-primary px-4 py-2 text-lg font-medium bg-transparent rounded-md transition" onClick={() => setIsMobileMenuOpen(false)}>
+  About
+</Link>
 
                 {[{ title: "Services", list: services }, { title: "Solutions", list: solution }, { title: "Industries", list: industries }, { title: "Resources", list: resources }].map((section) => (
                   <div key={section.title} className="border-t pt-3">

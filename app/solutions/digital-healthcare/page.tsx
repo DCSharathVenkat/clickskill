@@ -76,7 +76,7 @@ export default function DigitalHealthcarePage() {
             Unlock instant insights into your digital transformation costs, timelines, and ROI—powered by real data and proven expertise.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-blue-300 hover:bg-blue-400 text-white shadow-lg hover:shadow-xl" asChild>
+            <Button size="lg" className="bg-[#0A6373] hover:bg-[#E66C6C]  text-white shadow-lg hover:shadow-xl" asChild>
               <Link href="/consultation">
                 Get Detailed Quote
                 <ArrowRight className="ml-2 h-5 w-5" />
