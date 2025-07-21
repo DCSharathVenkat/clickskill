@@ -14,7 +14,7 @@ import {
   Shield,
   ChevronDown,
 } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { motion, useAnimation } from 'framer-motion' // Import useAnimation
 
 export function HeroSection() {
   const [typedText1, setTypedText1] = useState('')
@@ -22,32 +22,57 @@ export function HeroSection() {
   const fullText1 = 'Engineering Solutions'
   const fullText2 = 'That Deliver Results'
 
+  // Controls for description and features animations
+  const controlsDescription = useAnimation()
+  const controlsFeatures = useAnimation()
+
   useEffect(() => {
-    let index = 0
-    const typeFirst = () => {
+    let index1 = 0;
+    let index2 = 0;
+
+    // Function to type the first line
+    const typeFirstLine = () => {
       const interval1 = setInterval(() => {
-        setTypedText1(fullText1.slice(0, index + 1))
-        index++
-        if (index === fullText1.length) {
-          clearInterval(interval1)
-          setTimeout(() => typeSecond(), 300)
+        setTypedText1(prev => fullText1.slice(0, index1 + 1));
+        index1++;
+        if (index1 > fullText1.length) { // Use > for clean stop
+          clearInterval(interval1);
+          setTimeout(typeSecondLine, 50); // Small delay between lines
         }
-      }, 80)
-    }
+      }, 40); // Typing speed (e.g., 40ms)
+      return interval1; // Return interval ID for cleanup
+    };
 
-    const typeSecond = () => {
-      let i = 0
+    // Function to type the second line
+    const typeSecondLine = () => {
       const interval2 = setInterval(() => {
-        setTypedText2(fullText2.slice(0, i + 1))
-        i++
-        if (i === fullText2.length) {
-          clearInterval(interval2)
+        setTypedText2(prev => fullText2.slice(0, index2 + 1));
+        index2++;
+        if (index2 > fullText2.length) { // Use > for clean stop
+          clearInterval(interval2);
+          // Once typing is done, start the next animations
+          setTimeout(() => {
+            controlsDescription.start({ opacity: 1, x: 0 });
+            controlsFeatures.start(i => ({
+              opacity: 1,
+              x: 0,
+              transition: { delay: i * 0.1 } // Staggered animation for each feature icon
+            }));
+          }, 200); // Small delay after typing before content animates
         }
-      }, 80)
-    }
+      }, 40); // Typing speed
+      return interval2; // Return interval ID for cleanup
+    };
 
-    typeFirst()
-  }, [])
+    // Start typing immediately when the component mounts
+    const initialInterval1 = typeFirstLine();
+
+    // Cleanup function for intervals
+    return () => {
+      // Clear any pending intervals if the component unmounts early
+      clearInterval(initialInterval1);
+    };
+  }, [controlsDescription, controlsFeatures]); // Dependencies for useAnimation
 
   const features = [
     { Icon: Brain, title: 'AI & ML' },
@@ -79,7 +104,7 @@ export function HeroSection() {
         {/* Left text */}
         <motion.div
           className="w-full lg:w-1/2 text-center lg:text-left"
-          initial={{ opacity: 0, x: -40 }}
+          initial={{ opacity: 0, x: -40 }} // Initial animation for the whole text block
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
@@ -90,26 +115,39 @@ export function HeroSection() {
             </span>
           </h1>
 
-          <p className="text-lg text-gray-700 mb-10">
+          {/* Description with fade-in from left */}
+          <motion.p
+            className="text-lg text-gray-700 mb-10"
+            initial={{ opacity: 0, x: -50 }} // Start hidden and off to the left
+            animate={controlsDescription} // Control this animation with useAnimation
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+          >
             ClickSkill help enterprises build, integrate, and scale intelligent products with a focus on security, performance, and lasting transformation.
-          </p>
+          </motion.p>
 
-          {/* Icons with tooltips */}
+          {/* Icons with tooltips - each animated individually */}
           <div className="flex flex-wrap justify-center lg:justify-start gap-6 mt-6">
             {features.map(({ Icon, title }, idx) => (
-              <div key={idx} className="relative group flex flex-col items-center">
+              <motion.div
+                key={idx}
+                className="relative group flex flex-col items-center"
+                custom={idx} // Pass index as custom prop for staggered animation
+                initial={{ opacity: 0, x: -20 }} // Start hidden and slightly off to the left
+                animate={controlsFeatures} // Control this animation with useAnimation
+                transition={{ duration: 0.4, ease: 'easeOut' }}
+              >
                 <Icon className="h-8 w-8 text-gray-700 hover:text-gray-900 transition-transform duration-300 group-hover:animate-bounce" />
                 <span className="absolute top-12 px-3 py-1.5 text-xs font-medium text-white bg-gradient-to-r from-orange-400 to-yellow-500 rounded-md shadow-lg whitespace-nowrap opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 pointer-events-none z-20">
                   {title}
                   <span className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-orange-400 rotate-45 z-[-1]" />
                 </span>
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>
-  {/* iPad image */}
-{/* iPad image with fade-in from right to left */}
-<motion.div
+
+        {/* iPad image */}
+        <motion.div
           className="w-full lg:w-1/2"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -139,8 +177,6 @@ export function HeroSection() {
             </motion.div>
           </motion.div>
         </motion.div>
-
-
       </div>
 
       {/* Scroll indicator */}

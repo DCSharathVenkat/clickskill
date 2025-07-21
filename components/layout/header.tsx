@@ -21,7 +21,7 @@ import { cn } from "@/lib/utils"
 import { usePathname } from "next/navigation"
 
 const services = [
-  { icon: <Brain size={16} />, name: "AI & ML Development", href: "/services/ai-ml-development", description: "Custom AI solutions and machine learning models" },
+  { icon: <Brain size={16} />, name: "AI & ML Development", href: "/services/ai-ml-development", description: "Custom AI solutions & ML models" },
   { icon: <Lightbulb size={16} />, name: "Product Engineering", href: "/services/product-engineering", description: "End-to-end product development and engineering" },
   { icon: <Settings size={16} />, name: "MLOps & DevOps", href: "/services/mlops-devops", description: "Streamlined deployment and operations" },
   { icon: <TrendingUp size={16} />, name: "Digital Transformation", href: "/services/digital-transformation", description: "Comprehensive digital modernization" },
@@ -102,7 +102,7 @@ export function Header() {
 </NavigationMenuTrigger>
 
                     <NavigationMenuContent>
-                      <div className="grid w-[500px] md:grid-cols-2">
+                      <div className="grid w-[375px] md:grid-cols-2">
                         {item.menu.map((menuItem) => (
                           <NavigationMenuLink key={menuItem.name} asChild>
                             <Link href={menuItem.href} className="flex items-start gap-3 p-3 rounded-md hover:bg-accent transition">

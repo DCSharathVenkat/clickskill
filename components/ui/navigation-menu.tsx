@@ -18,7 +18,9 @@ const NavigationMenu = React.forwardRef<
     {...props}
   >
     {children}
-    <NavigationMenuViewport />
+    {/* NavigationMenuViewport is placed here in the original Radix-based examples */}
+    {/* However, the example Header.tsx places it separately, which also works as long as it's a child of Root.
+        We'll make sure it's explicitly rendered in Header.tsx */}
   </NavigationMenuPrimitive.Root>
 ))
 NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName
@@ -69,7 +71,12 @@ const NavigationMenuContent = React.forwardRef<
   <NavigationMenuPrimitive.Content
     ref={ref}
     className={cn(
-      "left-0 top-0 w-full data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 md:absolute md:w-auto ",
+      // IMPORTANT: Removed 'left-0' and fixed 'w-[500px]' from here.
+      // Radix UI will handle horizontal positioning relative to the trigger.
+      "absolute mt-2 z-50", // 'absolute' and 'mt-2' are fine for vertical offset
+      "data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52",
+      "p-6 md:w-auto w-full", // Added padding, ensuring auto width for desktop, full width for mobile
+      "bg-background rounded-md shadow-lg", // Added common styling for dropdown content
       className
     )}
     {...props}
@@ -83,7 +90,12 @@ const NavigationMenuViewport = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Viewport>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Viewport>
 >(({ className, ...props }, ref) => (
-  <div className={cn("absolute left-0 top-full flex justify-center")}>
+  // **** CRITICAL CHANGE HERE ****
+  // Removed 'left-0' from this wrapper div.
+  // Changed 'w-screen' to 'w-full' so it respects parent width.
+  // The 'flex justify-center' will allow the viewport content to be horizontally centered
+  // within the NavigationMenu.Root's available space, which is what Radix expects.
+  <div className="absolute top-full flex justify-center z-50 w-full">
     <NavigationMenuPrimitive.Viewport
       className={cn(
         "origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]",
