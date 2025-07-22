@@ -182,7 +182,7 @@ export function HeroSection() {
       {/* Scroll indicator */}
       <div className="relative z-10 flex justify-center mt-12 animate-bounce">
         <div className="flex flex-col items-center space-y-2">
-          <span className="text-sm text-gray-600">Scroll to explore</span>
+          <span className="text-sm text-gray-600">Scroll  explore</span>
           <ChevronDown className="h-5 w-5 text-gray-600" />
         </div>
       </div>
