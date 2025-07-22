@@ -1,6 +1,38 @@
+'use client'
+
 import Image from "next/image"
+import { motion, Variants } from "framer-motion" // Import Variants type
 
 export default function About() {
+  // Define common animation variants for text blocks
+  // Corrected structure for Variants type
+  const textVariants: Variants = { // Explicitly type as Variants
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { // Transition is nested within the 'visible' state object
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    },
+  }
+
+  // Define animation variants for staggered items (like the cards)
+  // Corrected structure for Variants type
+  const itemVariants: Variants = { // Explicitly type as Variants
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { // Transition is nested within the 'visible' state object
+        duration: 0.5,
+        ease: "easeOut"
+      }
+    },
+  }
+
+
   return (
     <main className="pt-20">
       {/* Hero Section with Background and Wave */}
@@ -15,12 +47,22 @@ export default function About() {
           />
         </div>
         <div className="relative z-10 container mx-auto px-6 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-6">
+          <motion.h1
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-6"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             About Us
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-800  max-w-3xl mx-auto leading-relaxed">
+          </motion.h1>
+          <motion.p
+            className="text-xl md:text-2xl text-gray-800 max-w-3xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+          >
             We are a global technology and consulting company delivering innovative solutions for digital transformation and business growth across industries.
-          </p>
+          </motion.p>
         </div>
 
         {/* Wave Divider */}
@@ -51,17 +93,29 @@ export default function About() {
       <section className="section-padding bg-white">
         <div className="container">
           {/* Who We Are */}
-          <div className="max-w-5xl mx-auto text-center mb-16">
+          <motion.div
+            className="max-w-5xl mx-auto text-center mb-16"
+            variants={textVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }} // Animate once when 30% of element is visible
+          >
             <h2 className="text-3xl md:text-4xl font-bold text-slate mb-6">Who We Are</h2>
             <p className="text-lg text-neutral-600 text-left leading-relaxed">
               ClickSkill is a next-generation software company offering a broad portfolio of technology solutions and services. We bring together deep industry experience, technical expertise, and agile methodologies to help businesses thrive in a rapidly evolving digital landscape.
               <br /><br />
               Our team of highly skilled professionals is committed to delivering innovative, scalable, and secure software tailored to each client’s unique needs. From consulting and custom development to full-scale enterprise solutions, we partner with organizations across diverse industries to solve complex challenges and create lasting impact.
             </p>
-          </div>
+          </motion.div>
 
           {/* What We Believe */}
-          <div className="max-w-5xl mx-auto text-center mb-16">
+          <motion.div
+            className="max-w-5xl mx-auto text-center mb-16"
+            variants={textVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold text-slate mb-6">What We Believe</h2>
             <p className="text-lg text-neutral-600 text-left leading-relaxed">
               At ClickSkill, our philosophy is rooted in creating strategic, innovative, and tailored solutions that meet each client's goals—while staying within budget and on schedule.
@@ -72,10 +126,16 @@ export default function About() {
               <br /><br />
               Our dedication, transparency, and customer-first approach have earned us lasting relationships and consistent results.
             </p>
-          </div>
+          </motion.div>
 
           {/* What We Offer */}
-          <div className="max-w-5xl mx-auto text-center mb-16">
+          <motion.div
+            className="max-w-5xl mx-auto text-center mb-16"
+            variants={textVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold text-slate mb-6">What We Offer</h2>
             <p className="text-lg text-neutral-600 text-left leading-relaxed">
               We offer a unique blend of business insight, technical excellence, and proven leadership. Our approach draws from decades of combined experience and a deep understanding of global industry trends.
@@ -84,10 +144,16 @@ export default function About() {
               <br /><br />
               Innovation, quality, and accountability are not just principles—they are core values we deliver on every day.
             </p>
-          </div>
+          </motion.div>
 
           {/* Why Choose Us */}
-          <div className="max-w-5xl mx-auto text-center">
+          <motion.div
+            className="max-w-5xl mx-auto text-center"
+            variants={textVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold text-slate mb-6">Why Choose Us</h2>
             <p className="text-lg text-neutral-600 text-left leading-relaxed">
               ClickSkill is one of the fastest-growing software firms—recognized for our ability to serve as a true end-to-end technology partner.
@@ -100,46 +166,70 @@ export default function About() {
               <br />
               <strong>As Technology Experts:</strong> We deliver scalable and future-ready systems built with compatibility across platforms and modern frameworks.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Why Choose ClickSkill (Highlights) */}
       <section className="section-padding bg-gray-50">
         <div className="container">
-          <div className="max-w-4xl mx-auto text-center mb-12">
+          <motion.div
+            className="max-w-4xl mx-auto text-center mb-12"
+            variants={textVariants} // Re-using textVariants for this heading/paragraph
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold text-slate mb-6">Why Choose ClickSkill</h2>
             <p className="text-xl text-neutral-600">
               We combine deep domain expertise, modern technologies, and agile execution to deliver measurable results.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
-            <div>
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }} // Animate once when 20% of the container is visible
+            variants={{
+              visible: {
+                transition: {
+                  staggerChildren: 0.1, // Stagger children animations by 0.1 seconds
+                },
+              },
+            }}
+          >
+            <motion.div variants={itemVariants}>
               <h3 className="text-lg font-semibold text-primary mb-2">Client-Centric Approach</h3>
               <p className="text-neutral-600">Tailored solutions built around your goals and challenges.</p>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div variants={itemVariants}>
               <h3 className="text-lg font-semibold text-primary mb-2">Expert Team</h3>
               <p className="text-neutral-600">Multidisciplinary professionals with global experience.</p>
-            </div>
-            <div>
+            </motion.div>
+            <motion.div variants={itemVariants}>
               <h3 className="text-lg font-semibold text-primary mb-2">Proven Results</h3>
               <p className="text-neutral-600">Track record of transforming processes and scaling growth.</p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Call to Action */}
       <section className="section-padding bg-primary text-white">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
+          <motion.div
+            className="max-w-3xl mx-auto text-center"
+            variants={textVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Let’s Build the Future Together</h2>
             <p className="text-xl mb-8 text-white/90">
               Partner with us to accelerate your digital transformation with innovation, integrity, and impact.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
     </main>

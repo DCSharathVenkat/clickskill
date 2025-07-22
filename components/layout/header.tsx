@@ -102,14 +102,13 @@ export function Header() {
 </NavigationMenuTrigger>
 
                     <NavigationMenuContent>
-                      <div className="grid w-[375px] md:grid-cols-2">
+                      <div className="grid w-[200px] md:grid-cols-1">
                         {item.menu.map((menuItem) => (
                           <NavigationMenuLink key={menuItem.name} asChild>
-                            <Link href={menuItem.href} className="flex items-start gap-3 p-3 rounded-md hover:bg-accent transition">
+                            <Link href={menuItem.href} className="flex items-start gap-2 p-3 rounded-md hover:bg-accent transition">
                               <span className="mt-1 text-muted-foreground">{menuItem.icon}</span>
                               <span>
                                 <div className="text-sm font-medium">{menuItem.name}</div>
-                                {menuItem.description && <p className="text-sm text-muted-foreground">{menuItem.description}</p>}
                               </span>
                             </Link>
                           </NavigationMenuLink>
