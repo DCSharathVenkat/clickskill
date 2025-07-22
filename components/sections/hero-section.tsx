@@ -188,7 +188,7 @@ export function HeroSection() {
       </div>
 
       {/* Wave Divider at Bottom */}
-      <div className="absolute -bottom-px left-0 w-full z-0"> {/* Changed -bottom-px to -bottom-10 */}
+      <div className="absolute -bottom-px left-0 w-full z-0"> 
   <svg
     viewBox="0 0 1440 325"
     xmlns="http://www.w3.org/2000/svg"
