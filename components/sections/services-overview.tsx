@@ -104,7 +104,7 @@ export function ServicesOverview() {
             Comprehensive <br/>Technology Services
           </h2>
           <p className="text-lg text-neutral-600 mb-10 max-w-2xl">
-            From AI innovation to digital transformation, we deliver end-to-end solutions that drive measurable business outcomes for global enterprises.
+            From innovation to digital transformation, we deliver end-to-end solutions that drive measurable business outcomes for global enterprises.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
