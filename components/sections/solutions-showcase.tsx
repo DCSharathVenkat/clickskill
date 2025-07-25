@@ -70,7 +70,7 @@ export function SolutionsShowcase() {
             }}
           >
             <Image
-              src="/images/illust.png"
+              src="/images/techsol.png"
               alt="Solutions Image"
               width={600}
               height={500}

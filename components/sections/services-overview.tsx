@@ -148,7 +148,7 @@ export function ServicesOverview() {
 
         {/* Right: Animated Image */}
         <motion.div
-          className="w-full lg:w-1/2 mt-0 lg:-mt-16"
+          className="w-full lg:w-[70%]"
           initial={{ opacity: 0, x: 60 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.2 }}
@@ -159,10 +159,10 @@ export function ServicesOverview() {
             transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
           >
             <Image
-              src="/images/services.png"
+              src="/images/heropic.png"
               alt="Services Illustration"
-              width={600}
-              height={500}
+              width={650}
+              height={600}
               className="mx-auto drop-shadow-xl"
             />
           </motion.div>
