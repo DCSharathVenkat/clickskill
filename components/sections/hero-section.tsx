@@ -167,7 +167,7 @@ export function HeroSection() {
               }}
             >
               <Image
-                src="/images/heropic.png"
+                src="/images/hero.png"
                 alt="Tablet Interface"
                 width={1000}
                 height={1000}
