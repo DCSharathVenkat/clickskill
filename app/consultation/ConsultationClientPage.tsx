@@ -140,8 +140,8 @@ export default function ConsultationClientPage() {
           />
         </div>
         <div className="relative z-10 container mx-auto px-6 flex flex-col items-center text-center">
-          <Badge className="mb-4 bg-primary/20 text-primary border-primary/30 text-base px-4 py-2 rounded-md">
-            Free Consultation
+          <Badge className="mb-4 bg-primary/50 text-gray-900 border-primary/80 text-base px-4 py-2 rounded-md">
+            Schedule Consultation
           </Badge>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-Gray-800">
             Let's Build Something

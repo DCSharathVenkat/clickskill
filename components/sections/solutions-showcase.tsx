@@ -70,10 +70,10 @@ export function SolutionsShowcase() {
             }}
           >
             <Image
-              src="/images/techsol.png"
+              src="/images/sollatest.png"
               alt="Solutions Image"
-              width={600}
-              height={500}
+              width={550}
+              height={300}
               className="mx-auto drop-shadow-xl"
             />
           </motion.div>
