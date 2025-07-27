@@ -16,12 +16,9 @@ export default function AiImplementationPage() {
           priority
         />
         <div className="relative z-10 text-center max-w-4xl px-6 text-white">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-800 drop-shadow-md">
-            10 AI Implementation Mistakes Every Enterprise Should Avoid
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-gray-800">
+            Articles & Insights
           </h1>
-          <p className="text-lg text-gray-800 font-medium">
-            by Dr. Sarah Johnson · December 15, 2024 · 6 min read
-          </p>
         </div>
         <div className="absolute bottom-0 w-full">
           {/* Decorative SVG waves */}
@@ -47,10 +44,9 @@ export default function AiImplementationPage() {
         <div className="container max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Summary */}
           <div className="mb-10">
-            <h2 className="text-3xl font-bold text-slate-800 mb-3">Summary</h2>
-            <p className="text-neutral-700 text-lg leading-relaxed">
-              Learn from common pitfalls and discover best practices for successful AI adoption in large organizations.
-            </p>
+          <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold mb-4 text-gray-800">
+            10 AI Implementation Mistakes Every Enterprise Should Avoid
+          </h1>
           </div>
 
           {/* Tags and Metadata */}

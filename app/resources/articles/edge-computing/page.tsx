@@ -16,12 +16,10 @@ export default function EdgeComputingPage() {
           priority
         />
         <div className="relative z-10 text-center max-w-4xl px-6 text-white">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-800 drop-shadow-md">
-            The Rise of Edge Computing: Transforming Data Processing
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-gray-800">
+            Articles & Insights
           </h1>
-          <p className="text-lg text-gray-800 font-medium">
-            by Michael Chen · December 12, 2024 · 8 min read
-          </p>
+            
         </div>
         <div className="absolute bottom-0 w-full">
           {/* SVG Waves */}
@@ -39,10 +37,9 @@ export default function EdgeComputingPage() {
         <div className="container max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Summary */}
           <div className="mb-10">
-            <h2 className="text-3xl font-bold text-slate-800 mb-3">Summary</h2>
-            <p className="text-neutral-700 text-lg leading-relaxed">
-              Explore how edge computing is revolutionizing real-time data processing and reducing latency for critical applications.
-            </p>
+          <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold mb-4 text-gray-800">
+            The Rise of Edge Computing: Transforming Data Processing
+          </h1>
           </div>
 
           {/* Tags */}

@@ -16,12 +16,10 @@ export default function FutureOfWorkPage() {
           priority
         />
         <div className="relative z-10 text-center max-w-4xl px-6 text-white">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-800 drop-shadow-md">
-            The Future of Work: How AI is Reshaping Job Roles
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-gray-800">
+            Articles & Insights
           </h1>
-          <p className="text-lg text-gray-800 font-medium">
-            by David Thompson · December 8, 2024 · 7 min read
-          </p>
+          
         </div>
         <div className="absolute bottom-0 w-full">
           <svg viewBox="0 0 1440 325" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-[100px] lg:h-[100px]">
@@ -37,10 +35,9 @@ export default function FutureOfWorkPage() {
         <div className="container max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Summary */}
           <div className="mb-10">
-            <h2 className="text-3xl font-bold text-slate-800 mb-3">Summary</h2>
-            <p className="text-neutral-700 text-lg leading-relaxed">
-              An analysis of how artificial intelligence is transforming traditional job functions and creating new opportunities.
-            </p>
+            <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold mb-4 text-gray-800">
+            The Future of Work: How AI is Reshaping Job Roles
+          </h1>
           </div>
 
           {/* Tags and Metadata */}
