@@ -155,6 +155,7 @@ export default function ArticlesPage() {
                       width={600}
                       height={300}
                       className="rounded-t-lg object-cover w-full h-full"
+                      loading="lazy"  
                     />
                   )}
                 </div>

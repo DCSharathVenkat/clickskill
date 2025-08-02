@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
 import emailjs from "emailjs-com"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -84,14 +85,12 @@ const benefits = [
   {
     icon: Users,
     title: "Expert Team Access",
-    description:
-      "Connect with our senior architects and technology leaders",
+    description: "Connect with our senior architects and technology leaders",
   },
   {
     icon: Zap,
     title: "Actionable Insights",
-    description:
-      "Leave with a clear roadmap and next steps for your project",
+    description: "Leave with a clear roadmap and next steps for your project",
   },
 ]
 
@@ -101,6 +100,16 @@ export default function ConsultationClientPage() {
   const [selectedTimeline, setSelectedTimeline] = useState("")
   const [isSent, setIsSent] = useState(false)
   const [errorMsg, setErrorMsg] = useState("")
+  const [score, setScore] = useState("")
+
+  const searchParams = useSearchParams()
+
+  useEffect(() => {
+    const scoreParam = searchParams.get("score")
+    if (scoreParam) {
+      setScore(scoreParam)
+    }
+  }, [searchParams])
 
   const handleSubmit = async (e: any) => {
     e.preventDefault()
@@ -115,6 +124,7 @@ export default function ConsultationClientPage() {
       budget: selectedBudget,
       timeline: selectedTimeline,
       message: e.target.message.value,
+      aiScore: score || "Not Provided",
     }
 
     try {
@@ -199,6 +209,15 @@ export default function ConsultationClientPage() {
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} className="space-y-6">
+                      
+                      {score && (
+                        <div className="p-4 bg-blue-50 border border-blue-200 rounded-md">
+                          <p className="text-blue-600 text-sm">
+                            Your AI Readiness Score: <strong>{score}</strong>
+                          </p>
+                        </div>
+                      )}
+
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div><Label htmlFor="firstName">First Name *</Label><Input id="firstName" name="firstName" required /></div>
                         <div><Label htmlFor="lastName">Last Name *</Label><Input id="lastName" name="lastName" required /></div>
